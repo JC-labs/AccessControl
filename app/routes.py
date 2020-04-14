@@ -1,4 +1,4 @@
-from flask import render_template, flash, redirect, url_for, request, g
+from flask import render_template, flash, redirect, url_for, request
 from flask_login import login_user, logout_user, current_user, login_required
 from werkzeug.urls import url_parse
 
@@ -9,25 +9,53 @@ from app.models import User, Logs
 
 @app.route('/')
 @app.route('/index')
-@login_required
 def index():
-    logs = Logs.query.all()
-    records = []
-    for log in logs:
-        record = {
-            'user': log.username,
-            'time': log.timestamp,
-            'action': log.action
-        }
-        records.append(record)
+    username = None
+    if current_user is not None and current_user.is_authenticated:
+        username = current_user.username
+    return render_template('index.html', username=username)
 
-    return render_template('index.html', title='Home', posts=records)
+
+@app.route('/public')
+def public():
+    return render_template('public.html')
+
+
+@app.route('/private')
+def private():
+    if current_user is not None and current_user.is_authenticated:
+        return render_template('private.html')
+    else:
+        return render_template('denied.html')
+
+
+@app.route('/secret')
+@login_required
+def secret():
+    if current_user is not None and current_user.is_authenticated:
+        # if admin
+        if current_user.role is 0:
+            return render_template('secret.html')
+        else:
+            return render_template('denied.html')
+
+
+@app.route('/logs')
+@login_required
+def logs():
+    if current_user is not None and current_user.is_authenticated:
+        # if admin
+        if current_user.role is 0:
+            records = get_registered_records()
+            return render_template('log_template.html', records=records)
+        else:
+            return render_template('denied.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if current_user.is_authenticated:
-        return redirect(url_for('index'))
+    # if current_user.is_authenticated:
+    #     return redirect(url_for('index'))
     form = LoginForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
@@ -48,7 +76,7 @@ def login():
 @app.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('index'))
+    return redirect(url_for('login'))
 
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -67,17 +95,20 @@ def register():
     return render_template('register.html', title='Register', form=form)
 
 
-@app.route('/secret')
-@login_required
-def secret():
-    if current_user is not None and current_user.is_authenticated:
-        # if admin
-        if current_user.role is 0:
-            return "secret"
-    return "this page only for admins"
-
-
 def log_action(user, action: str = "something"):
     log = Logs(user_id=user.id, username=user.username, action=action)
     db.session.add(log)
     db.session.commit()
+
+
+def get_registered_records():
+    logs = Logs.query.all()
+    records = []
+    for log in logs:
+        record = {
+            'username': log.username,
+            'date_time': log.timestamp,
+            'action': log.action
+        }
+        records.append(record)
+    return records

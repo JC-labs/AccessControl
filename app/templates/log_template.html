@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<title>Registered Events</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href={{ url_for('static', filename='log_style.css') }}>
+<body>
+
+<h2>Registered events</h2>
+<table>
+  <tr>
+    <th>UserName</th>
+    <th>Date and Time</th>
+    <th>Action</th>
+  </tr>
+  {% for record in records %}
+    <tr>
+      <th> {{ record.username }} </th>
+      <th> {{ record.date_time }} </th>
+      <th> {{ record.action }} </th>
+    </tr>
+  {% endfor %}
+</table>
+
+</body>
+</html>
