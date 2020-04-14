@@ -25,31 +25,26 @@ def public():
 def private():
     if current_user is not None and current_user.is_authenticated:
         return render_template('private.html')
-    else:
-        return render_template('denied.html')
+    return render_template('denied.html')
 
 
 @app.route('/secret')
-@login_required
 def secret():
     if current_user is not None and current_user.is_authenticated:
         # if admin
         if current_user.role is 0:
             return render_template('secret.html')
-        else:
-            return render_template('denied.html')
+    return render_template('denied.html')
 
 
 @app.route('/logs')
-@login_required
 def logs():
     if current_user is not None and current_user.is_authenticated:
         # if admin
         if current_user.role is 0:
             records = get_registered_records()
             return render_template('log_template.html', records=records)
-        else:
-            return render_template('denied.html')
+    return render_template('denied.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
