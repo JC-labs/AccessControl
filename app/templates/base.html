@@ -1,11 +1,13 @@
 <html>
     <head>
         {% if title %}
-        <title>{{ title }} - Microblog</title>
+        <title>{{ title }} - Lab</title>
         {% else %}
-        <title>Welcome to Microblog</title>
+        <title>Welcome to Out Lab</title>
         {% endif %}
     </head>
+    <link rel="stylesheet" href={{ url_for('static', filename='style.css') }}>
+    <link rel="stylesheet" href={{ url_for('static', filename='login_style.css') }}>
     <body>
         <div>
             Access Control Lab:
