@@ -33,7 +33,9 @@ def secret():
     if current_user is not None and current_user.is_authenticated:
         # if admin
         if current_user.role is 0:
+            log_action(current_user, action="Visiting the secret page")
             return render_template('secret.html')
+    log_action(current_user, action="Secret page access DENIED!")
     return render_template('denied.html')
 
 
@@ -91,7 +93,10 @@ def register():
 
 
 def log_action(user, action: str = "something"):
-    log = Logs(user_id=user.id, username=user.username, action=action)
+    try:
+        log = Logs(user_id=user.id, username=user.username, action=action)
+    except AttributeError:
+        log = Logs(username="noname", action=action)
     db.session.add(log)
     db.session.commit()
 
