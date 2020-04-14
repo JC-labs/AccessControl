@@ -1,0 +1,110 @@
+body, h1 {
+    font-family: 'Permanent Marker', cursive
+}
+body, html {
+    height: 100%
+}
+.background {
+  background-image: url('https://bit.ly/3ciehll');
+  min-height: 100%;
+  background-position: center;
+  background-size: cover;
+}
+.middle {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    -ms-transform: translate(-50%,-50%);
+}
+.text {
+    text-align: center !important;
+    font-size: 50px !important;
+    text-decoration: none;
+}
+.big {
+    font-size: 140px !important;
+}
+.small {
+    font-size: 20px !important;
+}
+.public {
+    color: #080 !important;    
+	-webkit-text-stroke: 1px #fff;
+    text-shadow:
+       3px 3px 0 #8f8,
+     -1px -1px 0 #8f8,  
+      1px -1px 0 #8f8,
+      -1px 1px 0 #8f8,
+       1px 1px 0 #8f8;
+}
+.private {
+    color: #808 !important;
+	-webkit-text-stroke: 1px #fff;
+    text-shadow:
+       3px 3px 0 #f8f,
+     -1px -1px 0 #f8f,  
+      1px -1px 0 #f8f,
+      -1px 1px 0 #f8f,
+       1px 1px 0 #f8f;
+}
+.secret {
+    color: #0dd !important;
+	-webkit-text-stroke: 1px #fff;
+    text-shadow:
+       3px 3px 0 #044,
+     -1px -1px 0 #044,  
+      1px -1px 0 #044,
+      -1px 1px 0 #044,
+       1px 1px 0 #044;
+}
+.denied {
+    color: #800 !important;
+	-webkit-text-stroke: 1px #fff;
+    text-shadow:
+       3px 3px 0 #f00,
+     -1px -1px 0 #f00,  
+      1px -1px 0 #f00,
+      -1px 1px 0 #f00,
+       1px 1px 0 #f00;
+}
+.logs {
+    color: #c40 !important;
+	-webkit-text-stroke: 1px #fff;
+    text-shadow:
+       3px 3px 0 #f80,
+     -1px -1px 0 #f80,  
+      1px -1px 0 #f80,
+      -1px 1px 0 #f80,
+       1px 1px 0 #f80;
+}
+.login {
+    color: #008 !important;
+	-webkit-text-stroke: 1px #fff;
+    text-shadow:
+       3px 3px 0 #88f,
+     -1px -1px 0 #88f,  
+      1px -1px 0 #88f,
+      -1px 1px 0 #88f,
+       1px 1px 0 #88f;
+}
+.logout {
+    color: #400 !important;
+	-webkit-text-stroke: 1px #fff;
+    text-shadow:
+       3px 3px 0 #844,
+     -1px -1px 0 #844,  
+      1px -1px 0 #844,
+      -1px 1px 0 #844,
+       1px 1px 0 #844;
+}
+.greeting {
+    color: #333 !important;
+	-webkit-text-stroke: 1px #fff;
+    text-shadow:
+       3px 3px 0 #888,
+     -1px -1px 0 #888,  
+      1px -1px 0 #888,
+      -1px 1px 0 #888,
+       1px 1px 0 #888;
+}
