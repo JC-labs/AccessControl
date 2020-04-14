@@ -9,19 +9,18 @@
 
 <div class="background">
   <div class="middle">
-    <h1 class="text"><a href="/index" class="public text">
+    <h1 class="text"><a href="/index" class="greeting text">
       {% if username %}
         Hi, {{ username }}! This is Access Control Lab!
       {% else %}
         Welcome to Acsess Control Lab!
       {% endif %}</a>
     </h1>
+    <h1 class="text"><a href="/login" class="login text">login</a>&emsp;&emsp;&emsp;&emsp;<a href="/logout" class="logout text">logout</a></h1>
     <h1 class="text"><a href="/public" class="public text">public page</a></h1>
     <h1 class="text"><a href="/private" class="private text">private page</a></h1>
     <h1 class="text"><a href="/secret" class="secret text">secret page</a></h1>
     <h1 class="text"><a href="/logs" class="logs text">logs</a></h1>
-    <h1 class="text"><a href="/login" class="login text">login</a></h1>
-    <h1 class="text"><a href="/logout" class="logout text">logout</a></h1>
   </div>
 </div>
 

@@ -19,11 +19,14 @@ body, html {
 }
 .text {
     text-align: center !important;
-    font-size: 60px !important;
+    font-size: 50px !important;
     text-decoration: none;
 }
 .big {
     font-size: 140px !important;
+}
+.small {
+    font-size: 20px !important;
 }
 .public {
     color: #080 !important;    
@@ -74,4 +77,34 @@ body, html {
       1px -1px 0 #f80,
       -1px 1px 0 #f80,
        1px 1px 0 #f80;
+}
+.login {
+    color: #008 !important;
+	-webkit-text-stroke: 1px #fff;
+    text-shadow:
+       3px 3px 0 #88f,
+     -1px -1px 0 #88f,  
+      1px -1px 0 #88f,
+      -1px 1px 0 #88f,
+       1px 1px 0 #88f;
+}
+.logout {
+    color: #400 !important;
+	-webkit-text-stroke: 1px #fff;
+    text-shadow:
+       3px 3px 0 #844,
+     -1px -1px 0 #844,  
+      1px -1px 0 #844,
+      -1px 1px 0 #844,
+       1px 1px 0 #844;
+}
+.greeting {
+    color: #333 !important;
+	-webkit-text-stroke: 1px #fff;
+    text-shadow:
+       3px 3px 0 #888,
+     -1px -1px 0 #888,  
+      1px -1px 0 #888,
+      -1px 1px 0 #888,
+       1px 1px 0 #888;
 }
